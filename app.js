@@ -5,7 +5,11 @@ let sharing_path = "/app/sharing";
 let template_path = "/app/directory.html";
 
 let filter = function (filename, index, files, dir){
-  return !filename.toLowerCase().includes("@eadir");
+  let to_avoid = ["@eadir","#snapshot"];
+  for (const str of to_avoid) {
+    if (filename.toLowerCase().includes(str)) return false;
+  }
+  return true;
 }
 
 const app = express()
@@ -15,5 +19,5 @@ app.use(
   serveIndex(sharing_path, {'icons':true, 'template':template_path, 'filter':filter})
 )
 
-const port = process.env.PORT || 8080
-app.listen( port, ()=>console.log(`listening on port: ${port}...`) )
+const port = process.env.PORT || 8080;
+app.listen( port, ()=>console.log(`listening on port: ${port}...`) );
