@@ -1,0 +1,2 @@
+docker build -t leopaul/node_file_server:3.0 .
+docker run -d --name node_file_server_2022 -p 8080:8080 -v /volume1/Public:/app/sharing/Public:ro -v /volume1/Guest:/app/sharing/Guest:ro leopaul/node_file_server:3.0
