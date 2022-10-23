@@ -2,13 +2,15 @@ FROM node:latest
 
 WORKDIR /app
 
-COPY package*.json ./
+RUN mkdir -p sharing/Public sharing/Guest serve-index
 
-RUN mkdir -p sharing/Public sharing/Guest
+COPY . .
 
 RUN npm install
 
-COPY . .
+RUN cd serve-index
+
+RUN npm install
 
 ENV PORT=8080
 
