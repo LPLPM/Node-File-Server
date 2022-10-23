@@ -2,15 +2,13 @@ FROM node:latest
 
 COPY ./ /app
 
-RUN ls -1 /app
-
-RUN ls -1 /app/serve-index
+RUN ls -al /app
 
 RUN mkdir -p sharing/Public sharing/Guest
 
 RUN npm install
 
-RUN cd serve-index
+RUN cd serveIndex
 
 RUN npm install
 
