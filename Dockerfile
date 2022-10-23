@@ -2,7 +2,7 @@ FROM node:latest
 
 WORKDIR /app
 
-RUN mkdir -p sharing/Public sharing/Guest serve-index
+RUN mkdir -p sharing/Public sharing/Guest
 
 COPY . .
 
