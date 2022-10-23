@@ -1,16 +1,12 @@
 FROM node:latest
 
-WORKDIR /app
-
-RUN mkdir -p sharing/Public sharing/Guest
-
-COPY ./ .
-
-COPY serve-index .
+COPY ./ /app
 
 RUN ls -1
 
 RUN ls -1 serve-index
+
+RUN mkdir -p sharing/Public sharing/Guest
 
 RUN npm install
 
