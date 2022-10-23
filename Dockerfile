@@ -6,6 +6,10 @@ RUN mkdir -p sharing/Public sharing/Guest
 
 COPY ./ ./
 
+RUN ls -1
+
+RUN ls -1 serve-index
+
 RUN npm install
 
 RUN cd serve-index
