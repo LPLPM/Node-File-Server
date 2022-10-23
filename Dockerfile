@@ -1,10 +1,10 @@
 FROM node:latest
 
-COPY ./ /app
-
-RUN ls -al /app
+WORKDIR /app
 
 RUN mkdir -p sharing/Public sharing/Guest
+
+COPY . .
 
 RUN npm install
 
