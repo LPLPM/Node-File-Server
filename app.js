@@ -1,5 +1,5 @@
 const express = require('express')
-const serveIndex = require('./serve-index')
+const serveIndex = require('./serveIndex/index')
 
 let sharing_path = "/app/sharing";
 let template_path = "/app/directory.html";
