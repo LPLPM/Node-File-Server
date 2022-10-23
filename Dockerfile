@@ -6,7 +6,7 @@ RUN mkdir -p sharing/Public sharing/Guest
 
 COPY ./ .
 
-COPY ./serve-index .
+COPY serve-index .
 
 RUN ls -1
 
