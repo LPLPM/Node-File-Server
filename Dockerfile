@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN mkdir -p sharing/Public sharing/Guest
 
-COPY ./ ./
+COPY ./ .
 
 RUN ls -1
 
