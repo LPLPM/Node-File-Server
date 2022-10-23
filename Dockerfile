@@ -2,9 +2,9 @@ FROM node:latest
 
 COPY ./ /app
 
-RUN ls -1
+RUN ls -1 /app
 
-RUN ls -1 serve-index
+RUN ls -1 /app/serve-index
 
 RUN mkdir -p sharing/Public sharing/Guest
 
