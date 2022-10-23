@@ -8,9 +8,7 @@ COPY . .
 
 RUN npm install
 
-RUN cd serveIndex
-
-RUN npm install
+RUN cd serveIndex && npm install
 
 ENV PORT=8080
 
