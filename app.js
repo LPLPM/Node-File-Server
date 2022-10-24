@@ -3,8 +3,8 @@ const serveIndex = require('./serveIndex/index')
 
 let sharing_path = "/app/sharing";
 let template_path = "/app/directory.html";
-// let sharing_path = "/Users/leopaul/Desktop/public";
-// let template_path = "/Users/leopaul/Desktop/node_file_server/directory.html";
+// let sharing_path = "/Users/leopaul/Desktop/pu";
+// let template_path = "directory.html";
 
 let filter = function (filename, index, files, dir){
   let to_avoid = ["@eadir","#snapshot"];
@@ -17,6 +17,7 @@ let filter = function (filename, index, files, dir){
 const app = express()
 app.use(
   '/',
+  express.static("icons"),
   express.static(sharing_path),
   serveIndex(sharing_path, {'icons':true, 'template':template_path, 'filter':filter})
 )
