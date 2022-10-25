@@ -301,15 +301,16 @@ function createHtmlFileList(files, dir, useIcons, view) {
       ? file.stat.size
       : '';
     
-    var file_link = "sftp://musardo.fr:34"+escapeHtml(normalizeSlashes(normalize(path.join('/'))))
+    var link_sftp = "sftp://musardo.fr:34"+escapeHtml(normalizeSlashes(normalize(path.join('/'))))
+    var link_relativeHttp = escapeHtml(normalizeSlashes(normalize(path.join('/'))))
 
 
     return '<li>'
       + '<span>'
-      + '<button style="width: 15px; height: 30px;" onclick="inFunc('+ "'" +escapeHtml(file_link) +"'" +')" onmouseout="outFunc()" >C</button>'
+      + '<button style="width: 15px; height: 30px;" onclick="inFunc('+ "'" +escapeHtml(link_sftp) +"'" +')" onmouseout="outFunc()" >C</button>'
       + '\n'
       + '<a style="display:inline-block;" href="'
-      + escapeHtml(normalizeSlashes(normalize(path.join('/'))))
+      +  (classes.includes("icon-video")? link_sftp:link_relativeHttp)
       + '" class="' + escapeHtml(classes.join(' ')) + '"'
       + ' title="' + escapeHtml(file.name) + '">'
       + '<span class="name">' + escapeHtml(file.name) + '</span>'
