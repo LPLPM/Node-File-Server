@@ -75,26 +75,15 @@
     </script>
 
     <script>
-      function copy_to_clipboard(){
-        var copyText = document.getElementById("ftp_clipboard");
-        copyText.select(); 
-        //copyText.setSelectionRange(0, 99999); /* For mobile devices */
-        navigator.clipboard.writeText(copyText.value);
-        var tooltip = document.getElementById("myTooltip");
-        tooltip.innerHTML = "Copied: " + copyText.value;
+      //link = "sftp://musardo.fr:34"
+      //link += document.getElementById("linked-path").lastElementChild.getAttribute("href")
+      file_link_sftp = "sftp://musardo.fr:34" + "{directory}"
+      function copy_func(){
+        window.alert("📋 :\n"+ file_link_sftp);
+        navigator.clipboard.writeText(file_link_sftp);
       }
 
-      function outFunc() {
-        var tooltip = document.getElementById("myTooltip");
-        tooltip.innerHTML = "Copy to clipboard";
-      }
-
-      function fill_ftp_clipboard(){
-        ftp_clipboard = document.getElementById("ftp_clipboard");
-        link = "sftp://musardo.fr:34"
-        link += document.getElementById("linked-path").lastElementChild.getAttribute("href")
-        ftp_clipboard.value = link;
-      }
+      document.getElementById("play").setAttribute("href", "file_link_sftp");
     </script>
 
     <style>
@@ -136,10 +125,16 @@
         opacity: 1;
       }
 
-      #copy_div {
+      #btn_area {
         padding-top: 10%;
+        padding-bottom: 10%;
         width: max-content;
         margin: auto;
+      }
+      
+      #btn_area button{
+        height: 30px;
+        width: 50px;
       }
 
       #ftp_clipboard {
@@ -164,24 +159,25 @@
       }
       </style>
   </head>
+
+  
   <body class="directory">
     
     <input id="search" type="text" placeholder="Search" autocomplete="off" />
     
     <div id="wrapper">
       <h1 id="linked-path"><a href="/">~</a>{linked-path}</h1>
-      
       {files}
     </div>
     
-    <div id="copy_div">
-      <input type="text" value="" id="ftp_clipboard">
-      <div class="tooltip">
-        <button id="copy_button" onclick="copy_to_clipboard()" onmouseout="outFunc()">
-          <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>Copy</button>
-        </div>
-      </div>
-      <script>fill_ftp_clipboard()</script>
+    <div id="btn_area">
+      <button onclick="copy_func()">Copy</button>
+      <a id="play"> <button>Play</button> </a>
+      <a href="/help.html"> <button>Help</button> </a>
+    </div>
+    <script> document.getElementById("play").setAttribute("href", file_link_sftp); </script>
   
   </body>
+
+
 </html>

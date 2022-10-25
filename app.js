@@ -17,7 +17,7 @@ let filter = function (filename, index, files, dir){
 const app = express()
 app.use(
   '/',
-  express.static("icons"),
+  express.static("public"),
   express.static(sharing_path),
   serveIndex(sharing_path, {'icons':true, 'template':template_path, 'filter':filter})
 )
